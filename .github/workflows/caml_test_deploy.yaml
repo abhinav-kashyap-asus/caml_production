@@ -40,11 +40,6 @@ jobs:
           conda develop .
           echo ${PYTHONPATH}
           which python
-      - name: "Wandb Login"
-        env:
-          WANDB_API: ${{ secrets.WANDB_API_KEY }}
-        run: |
-          wandb login ${WANDB_API}
       - name: "Test the model on test data"
         working-directory: ${{ github.workspace }}/predictions/CAML_mimic3_full/
         run: bash evaluate_model.sh

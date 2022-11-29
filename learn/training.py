@@ -21,7 +21,7 @@ import evaluation
 import interpret
 import persistence
 import learn.tools as tools
-import wandb
+# import wandb
 import json
 
 
@@ -29,8 +29,8 @@ def main(args):
     start = time.time()
     args, model, optimizer, params, dicts = init(args)
     # setting up the wand project for this
-    wandb.init(project="caml_mimic")
-    wandb.config = params
+    # wandb.init(project="caml_mimic")
+    # wandb.config = params
 
     epochs_trained = train_epochs(args, model, optimizer, params, dicts)
     print(
@@ -197,10 +197,10 @@ def one_epoch(
         loss = np.mean(losses)
         print("epoch loss: " + str(loss))
 
-        wandb.log({
-            "train/loss": loss,
-            "epoch": epoch
-        })
+        # wandb.log({
+        #     "train/loss": loss,
+        #     "epoch": epoch
+        # })
 
     else:
         loss = np.nan
@@ -247,7 +247,7 @@ def one_epoch(
     # prepending the val/ to the keys to indicate that the validation metrics are being logged for this epoch
     val_metrics = {f"val/{k}": v for k, v in metrics.items()}
     val_metrics.update({"epoch": epoch})
-    wandb.log(val_metrics)
+    # wandb.log(val_metrics)
 
     # log the validation metrics
     if testing or epoch == n_epochs - 1:
@@ -270,7 +270,7 @@ def one_epoch(
         )
 
         test_metrics = {f"test/{k}": v for k, v in metrics_te.items()}
-        wandb.log(test_metrics)
+        # wandb.log(test_metrics)
 
     else:
         metrics_te = defaultdict(float)
@@ -330,9 +330,9 @@ def train(
         loss.backward()
         optimizer.step()
 
-        wandb.log({
-            "loss": loss.cpu().item()
-        })
+        # wandb.log({
+        #     "loss": loss.cpu().item()
+        # })
         losses.append(loss.item())
 
         if not quiet and batch_idx % print_every == 0:

@@ -2,7 +2,6 @@ name: caml-mimic
 channels:
   - defaults
   - pytorch
-  - conda-forge
 dependencies:
   - python=3.8.11
   - tqdm
@@ -17,4 +16,3 @@ dependencies:
   - pandas
   - rich
   - pydantic
-  - wandb

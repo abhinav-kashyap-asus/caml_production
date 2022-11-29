@@ -16,35 +16,35 @@ jobs:
       - name: "Display all files in the workspace"
         run: |
           ls ${{ github.workspace }}
-#      - name: Cache conda
-#        uses: actions/cache@v2
-#        env:
-#          # Increase this value to reset cache if etc/example-environment.yml has not changed
-#          CACHE_NUMBER: 0
-#        with:
-#          path: ~/conda_pkgs_dir
-#          key:
-#            ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{
-#            hashFiles('etc/example-environment.yml') }}
-#      - name: "Setup Conda Dependencies"
-#        uses: conda-incubator/setup-miniconda@v2
-#        with:
-#          activate-environment: caml-mimic
-#          environment-file: environment.yml
-#          python-version: 3.8.11
-#          use-only-tar-bz2: true # IMPORTANT: This needs to be set for caching to work properly!
-#      - run: conda list
-#      - run: conda info
-#      - name: "Set PYTHONPATH"
-#        run: |
-#          conda develop .
-#          echo ${PYTHONPATH}
-#          which python
-#      - name: "Wandb Login"
-#        env:
-#          WANDB_API: ${{ secrets.WANDB_API_KEY }}
-#        run: |
-#          wandb login ${WANDB_API}
-#      - name: "Test the model on test data"
-#        working-directory: ${{ github.workspace }}/predictions/CAML_mimic3_full/
-#        run: bash evaluate_model.sh
+      - name: Cache conda
+        uses: actions/cache@v2
+        env:
+          # Increase this value to reset cache if etc/example-environment.yml has not changed
+          CACHE_NUMBER: 0
+        with:
+          path: ~/conda_pkgs_dir
+          key:
+            ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{
+            hashFiles('etc/example-environment.yml') }}
+      - name: "Setup Conda Dependencies"
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          activate-environment: caml-mimic
+          environment-file: environment.yml
+          python-version: 3.8.11
+          use-only-tar-bz2: true # IMPORTANT: This needs to be set for caching to work properly!
+      - run: conda list
+      - run: conda info
+      - name: "Set PYTHONPATH"
+        run: |
+          conda develop .
+          echo ${PYTHONPATH}
+          which python
+      - name: "Wandb Login"
+        env:
+          WANDB_API: ${{ secrets.WANDB_API_KEY }}
+        run: |
+          wandb login ${WANDB_API}
+      - name: "Test the model on test data"
+        working-directory: ${{ github.workspace }}/predictions/CAML_mimic3_full/
+        run: bash evaluate_model.sh

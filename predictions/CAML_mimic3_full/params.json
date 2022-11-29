@@ -1,0 +1,17 @@
+{
+ "Y": "full",
+ "filter_size": "10",
+ "dropout": 0.2,
+ "num_filter_maps": 50,
+ "rnn_dim": 128,
+ "cell_type": "gru",
+ "rnn_layers": 1,
+ "lmbda": 0,
+ "command": "python ../../learn/training.py ../../mimicdata/mimic3/train_full.csv ../../mimicdata/mimic3/vocab.csv full conv_attn 200 --filter-size 10 --num-filter-maps 50 --dropout 0.2 --patience 10 --lr 0.0001 --public-model --test-model model.pth --vocab-dicts-file ../../mimic3_vocab_dicts.json",
+ "weight_decay": 0,
+ "version": "mimic3",
+ "data_path": "../../mimicdata/mimic3/train_full.csv",
+ "vocab": "../../mimicdata/mimic3/vocab.csv",
+ "lr": 0.0001,
+ "model_dir": "/Users/abhinavkashyap/abhi/projects/caml_mimic/predictions/CAML_mimic3_full"
+}

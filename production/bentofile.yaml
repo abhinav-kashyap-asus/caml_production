@@ -1,0 +1,12 @@
+service: "production.bentoml_service:svc"  # Same as the argument passed to `bentoml serve`
+labels:
+   owner: abhinavkashyap
+   stage: dev
+python:
+   packages:  # Additional pip packages required by the service
+   - torch
+   - pandas
+   - rich
+   - pydantic
+   - gensim
+   - tqdm

@@ -9,8 +9,8 @@ from bentoml.io import JSON
 from typing import Dict, Any
 import json
 
-VOCAB_DICTS_FILE = "mimi3_vocab_dicts.json"
-DESCRIPTIONS_JSON = "code_descriptions.json"
+VOCAB_DICTS_FILE = "../mimic3_vocab_dicts.json"
+DESCRIPTIONS_JSON = "../code_descriptions.json"
 
 
 class MedicalNote(BaseModel):

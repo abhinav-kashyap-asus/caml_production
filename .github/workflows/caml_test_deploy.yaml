@@ -62,7 +62,7 @@ jobs:
           password: ${{ secrets.REGISTRY_PASSWORD }}
       - name: "Push the bentoml model to ACR"
         run: |
-          docker push abhinavkashyapbootcamp.azurecr.io/caml_pretrained_model:1.0
+          docker push caml_pretrained_model:1.0
       - uses: azure/webapps-deploy@v2
         with:
           app-name: 'caml-model'

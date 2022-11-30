@@ -54,4 +54,4 @@ jobs:
         run: bentoml build --version 1.0 -f bentofile.yaml .
       - name: "Containerize Bentoml model"
         working-directory: ${{ github.workspace}}/production/
-        run: bentoml containerize caml_model_pretrained:latest
+        run: bentoml containerize caml_pretrained_model:latest

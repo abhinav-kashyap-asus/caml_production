@@ -52,3 +52,6 @@ jobs:
       - name: "Build bentoml"
         working-directory: ${{github.workspace}}/production/
         run: bentoml build --version latest -f bentofile.yaml .
+      - name: "Containerize Bentoml model"
+        working-directory: ${{ github.workspace}}/production/
+        run: bentoml containerize caml_model_pretrained:latest

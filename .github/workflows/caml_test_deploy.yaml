@@ -43,3 +43,5 @@ jobs:
       - name: "Test the model on test data"
         working-directory: ${{ github.workspace }}/predictions/CAML_mimic3_full/
         run: bash evaluate_model.sh
+      - name: "Setup bentoml"
+        run: pip install "bentoml[all]"

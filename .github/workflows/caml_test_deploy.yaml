@@ -51,4 +51,4 @@ jobs:
           python convert_to_bentoml.py --vocab-dicts-file ../mimic3_vocab_dicts.json --filter-size 10 --num-filter-maps 50 --model-path ${{ github.workspace }}/predictions/CAML_mimic3_full//model.pth
       - name: "Build bentoml"
         working-directory: ${{github.workspace}}/production/
-        run: bentoml build -f bentofile.yaml .
+        run: bentoml build --version latest -f bentofile.yaml .
